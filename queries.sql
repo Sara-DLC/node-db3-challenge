@@ -30,5 +30,23 @@ on c.Id = o.CustomerId
 join Employee as e
 on e.Id = o.EmployeeId
 
+--Stretch Problems: In SQL Try Editor at W3Schools.com:
+
+--Displays CategoryName and a new column called Count that shows how many products are in each category. Shows 9 records. //Type should be 9=8
+
+SELECT c.categoryName, COUNT(c.categoryId) as Count 
+FROM Products as p
+JOIN categories as c 
+on c.categoryId = p.categoryId
+GROUP BY c.categoryId
+
+
+--Display OrderID and a column called ItemCount that shows the total number of products placed on the order. Shows 196 records.
+
+SELECT od.Orderid, od.quantity as ItemCount, SUM(od.quantity) as 'Orders Placed'
+from orderdetails as od
+GROUP BY od.orderId
+
+
 
 
